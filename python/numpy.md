@@ -1,9 +1,6 @@
 # NumPy trong Python
 
 ## 1. NumPy là gì?
-
-**NumPy** là viết tắt của **Numerical Python**.
-
 NumPy là thư viện Python dùng để làm việc với dữ liệu số, đặc biệt là:
 
 ```txt
@@ -23,7 +20,6 @@ Cách import NumPy thường dùng:
 import numpy as np
 ```
 
-Trong đó `np` là bí danh phổ biến của NumPy.
 
 Ví dụ đầu tiên:
 
