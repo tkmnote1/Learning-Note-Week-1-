@@ -431,6 +431,437 @@ NumPy giúp làm việc với vector, ma trận và tensor dễ dàng hơn.
 Các phép toán trên NumPy array thường được thực hiện theo từng phần tử.
 NumPy là nền tảng quan trọng cho Data Science, Machine Learning và xử lý dữ liệu.
 
+
+## 15. Các lĩnh vực thường áp dụng NumPy
+
+NumPy không chỉ dùng để tạo mảng, mà còn là nền tảng cho nhiều lĩnh vực tính toán trong Python. Khi dữ liệu được biểu diễn bằng số, vector, ma trận hoặc tensor, NumPy thường được sử dụng để xử lý.
+
+---
+
+### 15.1. Đại số tuyến tính
+
+NumPy được dùng rất nhiều trong **đại số tuyến tính**, đặc biệt là khi làm việc với vector và ma trận.
+
+Một số thao tác phổ biến:
+
+* Cộng, trừ ma trận
+* Nhân ma trận
+* Tính định thức
+* Tìm ma trận nghịch đảo
+* Giải hệ phương trình tuyến tính
+* Tính trị riêng và vector riêng
+
+Ví dụ cộng hai ma trận:
+
+```python
+import numpy as np
+
+A = np.array([
+    [1, 2],
+    [3, 4]
+])
+
+B = np.array([
+    [5, 6],
+    [7, 8]
+])
+
+print(A + B)
+```
+
+Kết quả:
+
+```python
+[[ 6  8]
+ [10 12]]
+```
+
+Ví dụ nhân ma trận:
+
+```python
+C = np.dot(A, B)
+print(C)
+```
+
+Hoặc dùng toán tử `@`:
+
+```python
+C = A @ B
+print(C)
+```
+
+Ví dụ tính định thức:
+
+```python
+det_A = np.linalg.det(A)
+print(det_A)
+```
+
+Ví dụ tìm ma trận nghịch đảo:
+
+```python
+inv_A = np.linalg.inv(A)
+print(inv_A)
+```
+
+Ví dụ giải hệ phương trình tuyến tính:
+
+Giả sử có hệ:
+
+```txt
+x + 2y = 5
+3x + 4y = 11
+```
+
+Ta viết dưới dạng ma trận:
+
+```python
+A = np.array([
+    [1, 2],
+    [3, 4]
+])
+
+b = np.array([5, 11])
+
+x = np.linalg.solve(A, b)
+print(x)
+```
+
+Kết quả:
+
+```python
+[1. 2.]
+```
+
+Nghĩa là:
+
+```txt
+x = 1, y = 2
+```
+
+---
+
+### 15.2. Thống kê và xử lý dữ liệu
+
+NumPy thường được dùng để tính toán thống kê cơ bản trên dữ liệu.
+
+Một số hàm thường dùng:
+
+```python
+np.sum()
+np.mean()
+np.median()
+np.max()
+np.min()
+np.std()
+np.var()
+```
+
+Ví dụ:
+
+```python
+scores = np.array([7, 8, 9, 6, 10])
+
+print(np.mean(scores))
+print(np.max(scores))
+print(np.min(scores))
+print(np.std(scores))
+```
+
+Ý nghĩa:
+
+* `mean`: giá trị trung bình
+* `max`: giá trị lớn nhất
+* `min`: giá trị nhỏ nhất
+* `std`: độ lệch chuẩn
+
+NumPy thường được dùng trước khi đưa dữ liệu vào các thư viện như Pandas, Scikit-learn hoặc PyTorch.
+
+---
+
+### 15.3. Machine Learning
+
+Trong Machine Learning, dữ liệu thường được biểu diễn dưới dạng vector, ma trận hoặc tensor.
+
+Ví dụ:
+
+* Một dòng dữ liệu là một vector đặc trưng
+* Một bảng dữ liệu là một ma trận
+* Nhiều ảnh hoặc nhiều mẫu dữ liệu có thể biểu diễn bằng tensor nhiều chiều
+
+Ví dụ một mẫu dữ liệu có 4 đặc trưng:
+
+```python
+x = np.array([1.75, 70, 23, 1])
+```
+
+Có thể hiểu là:
+
+```txt
+chiều cao = 1.75
+cân nặng = 70
+tuổi = 23
+giới tính = 1
+```
+
+Một tập dữ liệu gồm nhiều mẫu:
+
+```python
+X = np.array([
+    [1.75, 70, 23, 1],
+    [1.60, 50, 21, 0],
+    [1.80, 80, 25, 1]
+])
+```
+
+Ở đây:
+
+```python
+X.shape
+```
+
+Kết quả:
+
+```python
+(3, 4)
+```
+
+Nghĩa là có 3 mẫu dữ liệu, mỗi mẫu có 4 đặc trưng.
+
+Trong Machine Learning, NumPy thường dùng để:
+
+* Biểu diễn dữ liệu đầu vào
+* Chuẩn hóa dữ liệu
+* Tính toán vector và ma trận
+* Viết thử các thuật toán học máy cơ bản
+* Xử lý dữ liệu trước khi đưa vào mô hình
+
+---
+
+### 15.4. Deep Learning
+
+Trong Deep Learning, dữ liệu thường được biểu diễn dưới dạng tensor nhiều chiều.
+
+Ví dụ một ảnh màu RGB có thể có dạng:
+
+```python
+image = np.zeros((224, 224, 3))
+```
+
+Ý nghĩa:
+
+```txt
+224: chiều cao ảnh
+224: chiều rộng ảnh
+3: số kênh màu RGB
+```
+
+Nếu có nhiều ảnh trong một batch:
+
+```python
+batch_images = np.zeros((32, 224, 224, 3))
+```
+
+Ý nghĩa:
+
+```txt
+32: số ảnh trong batch
+224: chiều cao
+224: chiều rộng
+3: số kênh màu
+```
+
+NumPy giúp ta hiểu cách dữ liệu được tổ chức trước khi học các thư viện như TensorFlow hoặc PyTorch.
+
+---
+
+### 15.5. Xử lý ảnh
+
+Một ảnh có thể được biểu diễn bằng mảng số.
+
+Ví dụ ảnh xám:
+
+```python
+gray_image = np.array([
+    [0, 255, 100],
+    [50, 200, 150],
+    [30, 80, 220]
+])
+```
+
+Mỗi số biểu diễn độ sáng của một pixel.
+
+Với ảnh RGB, mỗi pixel có 3 giá trị màu:
+
+```txt
+Red, Green, Blue
+```
+
+Ví dụ:
+
+```python
+pixel = np.array([255, 0, 0])
+```
+
+Đây là màu đỏ.
+
+NumPy có thể được dùng để:
+
+* Thay đổi độ sáng ảnh
+* Cắt ảnh
+* Lật ảnh
+* Chuẩn hóa pixel
+* Biểu diễn ảnh dưới dạng ma trận
+
+Ví dụ tăng độ sáng:
+
+```python
+image = np.array([
+    [100, 120],
+    [130, 140]
+])
+
+bright_image = image + 30
+print(bright_image)
+```
+
+---
+
+### 15.6. Xử lý tín hiệu
+
+NumPy cũng được dùng trong xử lý tín hiệu, ví dụ:
+
+* Âm thanh
+* Sóng
+* Dữ liệu cảm biến
+* Tín hiệu điện
+* Tín hiệu IoT
+
+Một đoạn tín hiệu âm thanh có thể được biểu diễn bằng mảng 1 chiều:
+
+```python
+signal = np.array([0.1, 0.2, 0.4, 0.3, 0.1])
+```
+
+Mỗi phần tử có thể biểu diễn biên độ âm thanh tại một thời điểm.
+
+NumPy có thể dùng để:
+
+* Tính trung bình tín hiệu
+* Chuẩn hóa tín hiệu
+* Cắt một đoạn tín hiệu
+* Biến đổi dữ liệu tín hiệu thành dạng phù hợp để phân tích
+
+---
+
+### 15.7. Mô phỏng toán học và khoa học
+
+NumPy thường được dùng để mô phỏng các bài toán toán học, vật lý hoặc khoa học.
+
+Ví dụ tạo dãy giá trị của hàm số:
+
+```python
+x = np.linspace(-10, 10, 100)
+y = x ** 2
+```
+
+Ở đây:
+
+```python
+x
+```
+
+là 100 giá trị từ -10 đến 10.
+
+```python
+y
+```
+
+là giá trị tương ứng của hàm:
+
+```txt
+y = x^2
+```
+
+Dữ liệu này có thể dùng để vẽ đồ thị bằng Matplotlib.
+
+Ví dụ:
+
+```python
+import matplotlib.pyplot as plt
+
+plt.plot(x, y)
+plt.show()
+```
+
+---
+
+### 15.8. Data Science
+
+Trong Data Science, NumPy thường nằm ở tầng nền tảng.
+
+Các thư viện như:
+
+```txt
+Pandas
+Scikit-learn
+Matplotlib
+TensorFlow
+PyTorch
+```
+
+đều có liên hệ chặt chẽ với NumPy.
+
+NumPy thường được dùng để:
+
+* Tạo dữ liệu mẫu
+* Làm sạch dữ liệu dạng số
+* Tính toán thống kê
+* Biến đổi dữ liệu
+* Chuẩn hóa dữ liệu
+* Làm việc với vector, ma trận
+
+Ví dụ chuẩn hóa dữ liệu:
+
+```python
+data = np.array([10, 20, 30, 40, 50])
+
+normalized = (data - np.mean(data)) / np.std(data)
+
+print(normalized)
+```
+
+Chuẩn hóa giúp dữ liệu có trung bình gần 0 và độ lệch chuẩn gần 1.
+
+---
+
+## 16. Tóm tắt các ứng dụng chính của NumPy
+
+NumPy được áp dụng trong nhiều lĩnh vực vì nó xử lý dữ liệu số rất tốt.
+
+Các ứng dụng quan trọng:
+
+```txt
+1. Đại số tuyến tính
+2. Thống kê
+3. Xử lý dữ liệu
+4. Machine Learning
+5. Deep Learning
+6. Xử lý ảnh
+7. Xử lý tín hiệu
+8. Mô phỏng toán học
+9. Data Science
+```
+
+Có thể hiểu đơn giản:
+
+```txt
+Nếu dữ liệu có thể biểu diễn bằng số, vector, ma trận hoặc tensor,
+thì NumPy có thể được dùng để xử lý dữ liệu đó.
+```
+
+NumPy là một thư viện nền tảng. Khi học tốt NumPy, việc học Pandas, Machine Learning, Deep Learning, xử lý ảnh và xử lý dữ liệu sẽ dễ hiểu hơn rất nhiều.
+
 Một số lệnh cần nhớ:
 
 ```python
