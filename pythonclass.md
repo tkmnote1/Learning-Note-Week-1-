@@ -1,3 +1,3 @@
-# Take Note For ML:
-    ## **Numpy**:
-        ### Numpy created for math and science
+# Take Note For LBK:
+    *OOP*:
+        4 functions
