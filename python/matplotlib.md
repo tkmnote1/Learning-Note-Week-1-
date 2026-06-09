@@ -18,7 +18,6 @@ Cách import Matplotlib thường dùng:
 import matplotlib.pyplot as plt
 ```
 
-Trong đó `plt` là bí danh phổ biến của `matplotlib.pyplot`.
 
 Ví dụ đầu tiên:
 
