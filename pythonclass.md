@@ -1,2 +1,3 @@
-# Learning-Note-Week-1-
-TuanKhuong Note For ML
+# Take Note For ML:
+    ## **Numpy**:
+        ### Numpy created for math and science
