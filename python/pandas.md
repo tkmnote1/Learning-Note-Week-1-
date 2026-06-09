@@ -30,8 +30,6 @@ Cách import Pandas thường dùng:
 import pandas as pd
 ```
 
-Trong đó `pd` là bí danh phổ biến của Pandas.
-
 Ví dụ đầu tiên:
 
 ```python
